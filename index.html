@@ -34,19 +34,15 @@
 
     <h3>Liste des tâches</h3>
 
-    <pre>{{tasks}}</pre>
 
     <p>Il reste <strong>{{ countTasks | checkPlural('tâche') }}</strong> sur <strong>{{tasks.length }}</strong> à effectuer.</p>
 
     <ul class="collection">
-        <li class="collection-item" v-for="(task, i) in tasks">
-            <input type="checkbox" :id="'t_' + (i+1)" v-model="task.isDone">
-            <label :for="'t_' + (i+1)" >{{ task.title }}</label>
-            <a href="#" class="link-delete" title="Supprimer cette tâche">
-                <i class="small material-icons" @click="remove(task)">delete_forever</i>
-            </a>
-        </li>
+        <task v-for="(task, i) in tasks" :tasks="tasks" :task="task" :i="i"></task>
     </ul>
+
+    <pre>{{tasks}}</pre>
+
 
 </main><!-- Fin de l'app Vue.js -->
 
