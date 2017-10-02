@@ -2,7 +2,11 @@
     'use strict';
 
     const Task = {
-        props: ["tasks", "task", "i"],
+        props:{
+            tasks:{type:Array, required:true},
+            task:{type:Object, required:true},
+            i:{type:Number, required:true},
+        },
         template: `
             <li class="collection-item">
                 <input type="checkbox" :id="'t_' + (i+1)" v-model="task.isDone">
